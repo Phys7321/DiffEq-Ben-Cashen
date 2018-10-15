@@ -1,4 +1,4 @@
-function [period,sol] = pendulum_mod1(omega,theta0,thetad0,grph) 
+function [period,sol] = pendulum_mod2(omega,theta0,thetad0,grph) 
 % Finds the period of a nonlinear pendulum given the length of the pendulum
 % arm and initial conditions. All angles in radians.
 
@@ -91,10 +91,16 @@ title('Average kinetic and potential energy during full cycle')
 legend('Avg. Kinetic Energy','Avg. Potential Energy','Avg. Total Energy','Location','best')
 xlabel('Cycles')
 ylabel('Energy')
+
+plot(t,E,'-')
+xlim([0,T])
+title('Total energy during one period')
+xlabel('time')
+ylabel('Total Energy')
     
 end
 %-------------------------------------------
 %
 function rdot = proj(t,r,g,R)
-    rdot = [r(2); -g/R*(r(1))];     %For SHM sin(r1) --> r1 (small angle approx.)
+    rdot = [r(2); -g/R*sin(r(1))];     % sin(r1) not expanded to account for large amplitude oscillations
 end

@@ -85,12 +85,13 @@ title('Phase diagram of simple armonic motion')
 xlabel('\theta')
 ylabel('d\theta/dt')
 
-figure(4)
-plot(1:N,Ek_avg,'o',1:N,Ep_avg,'o',1:N,Etot_avg,'o')
-title('Average kinetic and potential energy during full cycle')
-legend('Avg. Kinetic Energy','Avg. Potential Energy','Avg. Total Energy','Location','best')
-xlabel('Cycles')
+figure(5)
+plot(t,E_k,'o',t,E_p,'o')
+xlim([0,T])
+title('Potential and kinetic energy during one period')
+xlabel('time')
 ylabel('Energy')
+legend('Kinetic energy','Potential energy','Location','best')
     
 end
 %-------------------------------------------
